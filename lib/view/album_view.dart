@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../view_model/album_vm.dart';
 import '../model/album_model.dart';
  
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MockApp extends StatefulWidget {
+  const MockApp({Key? key}) : super(key: key);
  
   @override
-  _MyAppState createState() => _MyAppState();
+  _MockApp createState() => _MockApp();
 }
  
-class _MyAppState extends State<MyApp> {
+class _MockApp extends State<MockApp> {
   late Future<Album> futureAlbum;
  
   @override
@@ -21,15 +21,7 @@ class _MyAppState extends State<MyApp> {
  
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fetch Data Example',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Fetch Data Example'),
-        ),
+    return Scaffold(
         body: Center(
           child: FutureBuilder<Album>(
             future: futureAlbum,
@@ -45,7 +37,6 @@ class _MyAppState extends State<MyApp> {
             },
           ),
         ),
-      ),
-    );
+      );
   }
 }
